@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  golang:
+    tty: true
+    build: "./golang"
+    ports:
+      - "10080:80"
+    volumes:
+      - ../:/example
+    security_opt:
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
